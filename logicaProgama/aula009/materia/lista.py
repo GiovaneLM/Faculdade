@@ -38,6 +38,21 @@
 l_nomes=['ana', 'maria', 'juca', 'pedro', 'mario']
 l_idades=[22, 44, 57, 36, 68]
 
+try:
+    l_nomes.remove("Ivone")
+except:
+    print("nome nao encontrado")
+
+
+
+
+
+
+
+
+
+
+
 nome1=input("nome1: ")#l_nomes[0]
 nome2=input("nome2: ")#l_nomes[3]
 
