@@ -120,3 +120,134 @@ while True:
     break
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# O método sort() organiza os elementos da lista.
+# Nesse caso, ele vai organizar os professores pela média.
+
+professores.sort(key=lambda x: x[2])
+
+# -------------------- EXPLICAÇÃO DETALHADA --------------------
+
+# Imagine que a lista professores esteja assim:
+
+# [
+#     ["Carlos", 20, 4.0],
+#     ["Ana", 15, 3.0],
+#     ["João", 25, 5.0]
+# ]
+
+# Cada professor é armazenado em uma lista:
+# [nome, soma_notas, media]
+
+# Índices:
+# [0] -> nome
+# [1] -> soma das notas
+# [2] -> média
+
+# Então:
+# x[2]
+# significa:
+# "pegue a média desse professor"
+
+# -------------------------------------------------------------
+
+# O sort() funciona assim:
+#
+# Ele pega cada elemento da lista e compara usando a regra
+# definida no key=.
+
+# O key= serve para dizer:
+# "QUAL valor deve ser usado para ordenar"
+
+# -------------------------------------------------------------
+
+# lambda x: x[2]
+
+# lambda cria uma função rápida e temporária.
+
+# Isso é equivalente a criar uma função normal:
+
+def pegar_media(x):
+    return x[2]
+
+# E depois fazer:
+
+professores.sort(key=pegar_media)
+
+# -------------------------------------------------------------
+
+# Durante a ordenação:
+#
+# x recebe cada professor da lista.
+#
+# Exemplo:
+#
+# x = ["Carlos", 20, 4.0]
+#
+# então:
+#
+# x[2]
+#
+# será:
+#
+# 4.0
+
+# O sort compara essas médias para organizar a lista.
+
+# -------------------------------------------------------------
+
+# Resultado após ordenar:
+
+# [
+#     ["Ana", 15, 3.0],
+#     ["Carlos", 20, 4.0],
+#     ["João", 25, 5.0]
+# ]
+
+# Menor média -> maior média
+
+# -------------------------------------------------------------
+
+# Se quiser inverter:
+# maior média -> menor média
+
+professores.sort(key=lambda x: x[2], reverse=True)
+
+# reverse=True faz a ordenação ao contrário.
+
+# -------------------------------------------------------------
+
+# Outros exemplos:
+
+# Ordenar pelo nome:
+professores.sort(key=lambda x: x[0])
+
+# Ordenar pela soma das notas:
+professores.sort(key=lambda x: x[1])
+
+# -------------------------------------------------------------
+
+# Resumindo:
+
+# sort()  -> organiza a lista
+# key=    -> define QUAL valor será usado na comparação
+# lambda  -> cria uma função rápida
+# x[2]    -> pega a média
+# reverse=True -> inverte a ordem
