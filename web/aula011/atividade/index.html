@@ -1,23 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+<!DOCTYPE html> <!-- Define que o documento está usando HTML5 -->
+
+<html lang="pt-br"> <!-- Início do HTML e define o idioma como português -->
+<head> <!-- Área de configurações da página -->
+    <meta charset="UTF-8"> <!-- Permite usar acentos e caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Faz o site funcionar corretamente em celulares -->
+    <link rel="stylesheet" href="style.css"><!-- Conecta o arquivo CSS ao HTML -->
+    <title>Cursos</title> <!-- Título da aba do navegador -->
 </head>
-<body>
-    <div class="container">
-        <div class="lista">
-            <p>confira a nossa <stun>programação</stun> de <stun>cursos</stun> de </p>
-            <h1>AGOSTO</h1>
-            <div><p><img  src="imagem/calendario.png" alt=""> 03/08 | preparo de bolos e tortas</p></div>
-            <div><p><img  src="imagem/calendario.png" alt=""> 15/08 | preparo de pizza</p></div>
-            <div><p><img  src="imagem/calendario.png" alt=""> 23/08 | curso de confeiteiro</p></div>
-            <div><p><img  src="imagem/calendario.png" alt=""> 03/09 | culinaria japonesa</p></div>
+<body> <!-- Corpo da página -->
+    <div class="container"><!-- Container principal que segura toda a estrutura -->
+        
+        <div class="lista"><!-- Área da esquerda onde fica a lista dos cursos -->
+            <div class="titulo"><!-- Área do título principal -->
+                <p><!-- Texto principal -->
+                    confira nossa <br><!-- Quebra de linha -->
+                    <span>programação</span> de <!-- Span usado para destacar a palavra -->
+                    <span>cursos</span> de<!-- Outro span para destacar -->
+                </p>
+            </div>
+            <div class="mes"><!-- Caixa do mês -->
+                <h2>AGOSTO</h2><!-- Nome do mês -->
+            </div>
+
+            <div class="item"><!-- Primeiro item da lista -->
+                <div class="data"><!-- Área da data -->
+                    <img src="imagem/calendario.png" alt=""><!-- Imagem do calendário -->
+                    03/08<!-- Data do curso -->
+                </div>
+                <div class="curso"><!-- Nome do curso -->preparo de bolos e tortas</div>
+            </div>
+
+            <div class="item"><!-- Segundo item da lista -->
+                <div class="data">
+                    <img src="imagem/calendario.png" alt=""><!-- Imagem do calendário -->
+                    15/08<!-- Data do curso -->
+                </div>
+                <div class="curso"><!-- Nome do curso -->preparo de pizzas</div>
+            </div>
+
+            <div class="item"><!-- Terceiro item da lista -->
+                <div class="data">
+                    <img src="imagem/calendario.png" alt=""><!-- Imagem do calendário -->
+                    23/08<!-- Data do curso -->
+                </div>
+                <div class="curso"><!-- Nome do curso -->curso de confeiteiro</div>
+            </div>
+
+            <div class="item"><!-- Quarto item da lista -->
+                <div class="data">
+                    <img src="imagem/calendario.png" alt=""><!-- Imagem do calendário -->
+                    03/09<!-- Data do curso -->
+                </div>
+                <div class="curso"><!-- Nome do curso -->culinária japonesa</div>
+            </div>
         </div>
-        <div class="foto">
-            <img src="imagem/foto.jpg" alt="bebe">
+
+        <div class="foto"><!-- Área da imagem redonda -->
+            <img src="imagem/foto.jpg" alt=""><!-- Foto principal -->
         </div>
     </div>
 </body>

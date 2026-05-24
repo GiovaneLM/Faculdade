@@ -1,24 +1,119 @@
+/* Seleciona TODOS os elementos da página */
 *{
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0;
-    margin: 0;
+    margin: 0;/* Remove as margens padrão */
+    padding: 0;/* Remove os espaçamentos internos padrão */
+    box-sizing: border-box;/* Faz width e height considerarem padding e borda */
+    font-family: Arial, Helvetica, sans-serif;/* Define a fonte da página */
 }
+
+/* Estiliza o body da página */
 body{
-    background: linear-gradient(132deg, rgb(135 44 215) , rgb(66 19 104)49% , rgb(52 8 88)50% , rgb(91 31 151));
-
+    height: 100vh;/* Altura total da tela */
+    display: flex;/* Ativa o Flexbox */
+    justify-content: center;/* Centraliza horizontalmente */
+    align-items: center;/* Centraliza verticalmente */
+    background: linear-gradient(132deg,rgb(135 44 215),rgb(66 19 104)49%,rgb(52 8 88)50%,rgb(91 31 151));/* Cria o fundo degradê roxo */
 }
-.lista img{
-    width: 20px;
-    height: 20px;
+
+/* Container principal */
+.container{
+    width: 1000px;/* Largura máxima da estrutura */
+    display: flex;/* Coloca os elementos lado a lado */
+    justify-content: space-between;/* Cria espaço entre lista e foto */
+    align-items: center;/* Alinha tudo no centro vertical */
 }
 
+/* Área da lista de cursos */
+.lista{
+    width: 450px;/* Define a largura da lista */
+}
+
+/* Área do título */
+.lista .titulo{
+    text-align: center;/* Centraliza o texto */
+    margin-bottom: 20px;/* Espaço abaixo do título */
+}
+
+/* Texto do título */
+.lista .titulo p{
+    color: white;/* Cor branca */
+    font-size: 20px;/* Tamanho da letra */
+    font-weight: bold;/* Texto em negrito */
+    text-transform: uppercase;/* Deixa tudo maiúsculo */
+    line-height: 30px;/* Espaçamento entre linhas */
+}
+
+/* Palavras destacadas */
+.lista .titulo span{
+    color: #f0a646;/* Cor laranja */
+}
+
+/* Caixa do mês */
+.mes{
+    width: 360px;/* Largura da caixa */
+    margin: auto;/* Centraliza horizontalmente */
+    margin-bottom: 20px;/* Espaço abaixo */
+    background: #f0a646;/* Fundo laranja */
+    border-radius: 10px;/* Bordas arredondadas */
+    padding: 15px;/* Espaçamento interno */
+    text-align: center;/* Centraliza o texto */
+    box-shadow: 6px 6px 0px rgb(52, 8, 88);/* Cria sombra sólida */
+}
+
+/* Texto AGOSTO */
+.mes h2{
+    color: white;/* Cor branca */
+    font-size: 55px;/* Tamanho grande */
+}
+
+/* Cada item da lista */
+.item{
+    background: white;/* Fundo branco */
+    display: flex;/* Coloca data e curso lado a lado */
+    align-items: center;/* Centraliza verticalmente */
+    padding: 20px;/* Espaçamento interno */
+    margin-bottom: 15px;/* Espaço entre os itens */
+    border-radius: 40px;/* Bordas arredondadas */
+}
+
+/* Área da data */
+.data{
+    display: flex;/* Coloca imagem e texto lado a lado */
+    align-items: center;/* Centraliza verticalmente */
+    font-weight: bold;/* Texto em negrito */
+    color: rgb(52, 8, 88);/* Cor roxa */
+    padding-right: 20px;/* Espaço interno à direita */
+    margin-right: 20px;/* Espaço externo à direita */
+    border-right: 1px solid gray;/* Linha divisória */
+    min-width: 110px;/* Largura mínima */
+}
+
+/* Imagem do calendário */
+.data img{
+    width: 20px;/* Largura da imagem */
+    margin-right: 10px;/* Espaço entre imagem e data */
+}
+
+/* Nome do curso */
+.curso{
+    color: rgb(52, 8, 88);/* Cor roxa */
+    font-weight: bold;/* Texto em negrito */
+    text-transform: capitalize;/* Primeira letra de cada palavra maiúscula */
+}
+
+/* Área da foto */
 .foto{
-    overflow: hidden;
-    width: 200px;
-    height: 200px;
-    align-items: center;
+    width: 370px;/* Largura da foto */
+    height: 370px;/* Altura da foto */
+    border-radius: 50%;/* Faz a imagem virar um círculo */
+    overflow: hidden;/* Esconde partes que saírem do círculo */
+    border: 6px solid #d89cff;/* Borda rosa clara */
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.4);/* Sombra suave */
 }
+
+/* Imagem dentro da foto */
 .foto img{
-    width: 200px;
-    height: 200px;
+    width: 100%;/* Ocupa toda largura */
+    height: 100%;/* Ocupa toda altura */
+    object-fit: cover;/* Faz a imagem preencher sem deformar */
 }
