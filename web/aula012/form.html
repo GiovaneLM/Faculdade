@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formularios</title>
+    <style>
+        input{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>começando com os formularios html</h1>
+
+    <!--method = get/post-->
+    <form method="post" action="">
+
+        <label for="nome">Seu Nome:</label>
+        <input type="text" name="nome" id="nome" placeholder="Seu Nome" minlength="5" maxlength="10" required>
+
+        <label for="email">Seu E-Mail:</label>
+        <input type="email" name="email" id="email" placeholder="Seu E-Mail" required>
+
+        <label for="senha">Sua Senha:</label>
+        <input type="password" name="senha" id="senha" placeholder="Sua Senha" required>
+
+        <input type="number" name="idade" id="idade" placeholder="Sua Idade" required>
+
+        <input type="submit" name="enviar" value="Cadastrar">
+    </form>
+</body>
+</html>

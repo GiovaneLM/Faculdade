@@ -58,12 +58,14 @@ body{
     padding: 15px;/* Espaçamento interno */
     text-align: center;/* Centraliza o texto */
     box-shadow: 6px 6px 0px rgb(52, 8, 88);/* Cria sombra sólida */
+    transform: skewX(-30deg);
 }
 
 /* Texto AGOSTO */
 .mes h2{
     color: white;/* Cor branca */
     font-size: 55px;/* Tamanho grande */
+    transform: skewX(30deg);
 }
 
 /* Cada item da lista */
