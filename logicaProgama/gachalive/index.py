@@ -16,3 +16,4 @@ while True:
         case 2:
             missao=input("Digite a missao que deseja: ")
             missoes.append(missao)
+        case 3
