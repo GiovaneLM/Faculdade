@@ -40,7 +40,6 @@ while True:
         case 4:
             missao=input('digite a missao que deseja concluir: ')
             if missao in missoes:
-                missoes.remove(missao)
                 print('missao concluida com sucesso\n')
                 pontos += 100
             else:
