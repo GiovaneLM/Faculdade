@@ -46,13 +46,10 @@ while True:
                 print('missao nao encontrada\n')
         case 5:
             for i in range(len(recompensas)):
-                print(f"\nrecompensa: {recompensas[i][0]}\ndescrição: {recompensas[i][1]}")
+                print(f"\nrecompensa: {recompensas[i]}\n")
         case 6:
             recompensa=input("Digite a recompensa que deseja: ")
-            descricao=input("digite a descriçao dessa recompensa: ")
-            if descricao == " ":
-                descricao = 'vazio'
-            recompensas.append([recompensa,descricao])
+            recompensas.append(recompensa)
             print("recompensa adicionada com sucesso\n")
         case 7:
             recompensa=input('digite a recompensa que deseja deletar: ')
@@ -67,7 +64,7 @@ while True:
                 resposta=input("deseja fazer isso S-sim/N-não: ").lower()
                 if resposta == "sim" or resposta == "s":
                     numero = random.randrange(len(recompensas))
-                    print(f"\nrecompensa: {recompensas[numero][0]}\ndescrição: {recompensas[numero][1]}")
+                    print(f"\nrecompensa: {recompensas[numero]}\n")
                     pontos -= 500
                 else:
                     print("ok!!!!!")
