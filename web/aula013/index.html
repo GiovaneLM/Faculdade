@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            display: block;
+            margin-bottom: 8px;
+        }
+        .check input{
+            display: inline-block;
+        }
+        label{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>dados pessoais</legend>
+            <input type="text" name="nome" id="nome" placeholder="Seu Nome">
+            <input type="email" name="email" id="email" placeholder="Seu E-mail">
+            <input type="number" name="idade" id="idade" max="100" min="0" step="5" placeholder="Sua Idade">
+            <input type="tel" name="telefone" id="telefone" placeholder="Seu Telefone">
+            <input type="search" name="pesquisa" id="pesquisa" placeholder="Buscar">
+            <input type="password" name="senha" id="senha" minlength="8" placeholder="Sua Senha">
+            <input type="url" name="site" id="site" placeholder="Seu Site">
+        </fieldset>
+            <h2>Campos de Datas:</h2>
+            <input type="date" name="data" id="data">
+            <input type="time" name="hora" id="hora">
+            <input type="datetime-local" name="data-hora" id="data-hora">
+            <input type="month" name="mes" id="mes">
+            <input type="week" name="semana" id="semana">
+
+        <h2>campos utilitarios</h2>
+        <input type="file" name="anexo" id="anexo">
+        <input type="range" name="escala" id="escala" min="" max="50" step="10">
+        <input type="color" name="cor" id="cor">
+
+        <div class="check">
+            <h3>selecione os cursos do seu interesse:</h3>
+            <label for="html"><input type="checkbox" name="html" id="html" checked>html</label>
+            <label for="css"><input type="checkbox" name="css" id="css">css</label>
+            <label for="php"><input type="checkbox" name="php" id="php">php</label>
+            <h3>turno de preferencia:</h3>
+            <label for=""><input type="radio" name="turno" id="turno" value="manha" checked>manha</label>
+            <label for=""><input type="radio" name="turno" id="turno" value="tarde">tarde</label>
+            <label for=""><input type="radio" name="turno" id="turno" value="noite">noite</label>
+
+            <h3>autorização de dados:</h3>
+            <label for=""><input type="checkbox" name="autoriza" id="autoriza"> autorizo receber emails....e tudo mais!</label>
+        </div>
+        <select name="cursos" id="cursos">
+            <option value="">--select--</option>
+            <optgroup label="front-end">
+                <option value="javascript">javascript</option>
+                <option value="html e css">html e css</option>
+            </optgroup>
+            <optgroup label="back-end">
+                <option value="php">php</option>
+                <option value="python">python</option>
+            </optgroup>
+            <optgroup label="design">
+                <option value="figma">figma</option>
+            </optgroup>
+        </select>
+
+        <label for="">busque seu curso</label>
+        <input name="lista" list="aulinha">
+
+        <label for="obs">obs</label>
+        <textarea name="obs" id="obs"></textarea>
+
+        <input type="reset" name="limpar" value="limpar">
+        <input type="image" src="" alt="">
+        <input type="submit" value="Enviar">
+        <input type="button" value="botao">
+    </form>
+
+    <datalist id="aulinha">
+        <option>html</option>
+        <option>css</option>
+        <option>php</option>
+        <option >python</option>
+    </datalist>
+</body>
+</html>
