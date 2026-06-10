@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação 6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>"Dados pessoais" </legend>
+            <label for="nome">Nome completo:</label>
+            <input type="text" name="nome" id="nome" required>
+            <label for="Gênero">Gênero:</label>
+            <select name="Gênero" id="Gênero">
+                <option value="">---SELECT---</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Outro">Outro</option>
+                <option value="Prefiro não responder">Prefiro não responder</option>
+            </select>
+            <label for="Data de nascimento">Data de nascimento:</label>
+            <input type="date" name="Data de nascimento" id="Data de nascimento">
+            <label for="E-mail">E-mail :</label>
+            <input type="email" name="E-mail" id="E-mail" required>
+            <label for="URL site pessoal">URL site pessoal:</label>
+            <input type="url" name="URL site pessoal" id="URL site pessoal">
+            <label for="Endereco">Endereço (Rua, número e complemento):</label>
+            <input type="text" name="Endereco" id="Endereco" required>
+            <label for="Cidade">Cidade:</label>
+            <select name="Cidade" id="Cidade">
+                <option value="Alvorada">Alvorada</option>
+                <option value="Canoas">Canoas</option>
+                <option value="Esteio">Esteio</option>
+                <option value="Gravataí">Gravataí</option>
+                <option value="Novo Hamburgo">Novo Hamburgo</option>
+                <option value="Passo Fundo">Passo Fundo</option>
+                <option value="Pelotas">Pelotas</option>
+                <option value="Porto Alegre">Porto Alegre</option>
+                <option value="São Leopoldo">São Leopoldo</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend> "Dados profissionais" </legend>
+            <label for="AreaAtu">Area de Atuação:</label>
+            <select name="AreaAtu" id="AreaAtu" multiple>
+                <option value="Design">Design</option>
+                <option value="Desenvolvimento Front-end">Desenvolvimento Front-end</option>
+                <option value="Desenvolvimento Back-end">Desenvolvimento Back-end</option>
+                <option value="Engenharia de Software">Engenharia de Software</option>
+                <option value="Banco de Dados">Banco de Dados</option>
+                <option value="Análise de Testes">Análise de Testes</option>
+                <option value="Análise de Negócios">Análise de Negócios</option>
+                <option value="Manutenção">Manutenção</option>
+            </select>
+            <label for="Formacao">Formação:</label>
+            <input name="Formacao" id="Formacao" list="Formacao">
+            <label for="HisProf">Histórico Profissional:</label>
+            <textarea name="HisProf" id="HisProf"></textarea>
+            <label for="curriculo">Upload do currículo vitae:</label>
+            <input type="file" name="curriculo" id="curriculo">
+            <label for="Disponibilidade de horas semanais">Disponibilidade de horas semanais:</label>
+            <select name="Disponibilidade de horas semanais" id="Disponibilidade de horas semanais">
+                <option>10 Horas</option>
+                <option>20 Horas</option>
+                <option>30 Horas</option>
+                <option>40 Horas</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>"Agendamento de entrevista"</legend>
+            <label for="data">Data:</label>
+            <input type="date" name="data" id="data" required>
+            <label for="hora">Horário:</label>
+            <input type="time" name="hora" id="hora" required>
+        </fieldset>
+    </form>
+    <datalist id="Formacao">
+        <option value="Fundamental">Ensino Fundamental</option>
+        <option value="Medio">Ensino Médio</option>
+        <option value="Superior">Ensino Superior</option>
+        <option value="Especializacao">Especialização</option>
+        <option value="Mestrado">Mestrado</option>
+        <option value="Doutorado">Doutorado</option>
+    </datalist>
+</body>
+</html>
