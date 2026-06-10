@@ -46,8 +46,11 @@ while True:
     else:
         print('idade invalida')
 print(f'quantidade total de nadadores incritos: {total}')
-print(f'quantidade total de nadadores incritos na categoria Infantil A: {infantilA} o que representa {infantilA/total*100}% do total de inscrições')
-print(f'quantidade total de nadadores incritos na categoria Infantil B: {infantilB} o que representa {infantilB/total*100}% do total de inscrições')
-print(f'quantidade total de nadadores incritos na categoria Juvenil A: {juvenilA} o que representa {juvenilA/total*100}% do total de inscrições')
-print(f'quantidade total de nadadores incritos na categoria Juvenil B: {juvenilB} o que representa {juvenilB/total*100}% do total de inscrições')
-print(f'quantidade total de nadadores incritos na categoria Adulto: {adulto} o que representa {adulto/total*100}% do total de inscrições')
+if 0 < total:
+    print(f'quantidade total de nadadores incritos na categoria Infantil A: {infantilA} o que representa {infantilA/total*100}% do total de inscrições')
+    print(f'quantidade total de nadadores incritos na categoria Infantil B: {infantilB} o que representa {infantilB/total*100}% do total de inscrições')
+    print(f'quantidade total de nadadores incritos na categoria Juvenil A: {juvenilA} o que representa {juvenilA/total*100}% do total de inscrições')
+    print(f'quantidade total de nadadores incritos na categoria Juvenil B: {juvenilB} o que representa {juvenilB/total*100}% do total de inscrições')
+    print(f'quantidade total de nadadores incritos na categoria Adulto: {adulto} o que representa {adulto/total*100}% do total de inscrições')
+else:
+    print('nao ouve nenhum nadador registrado')
