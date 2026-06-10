@@ -8,6 +8,11 @@ nome=input("ola usuario nos informe seu nome: ")
 while True:
     for i in range(30):
         print("-",end="")
+    print('\n')
+    if len(missoes) > 2:
+        print('algumas missoes ja registradas')
+        for i in range(2):
+            print(f'{i+1}° missao : {missoes[i]}')
     print(f'\nNome: {nome} \nPontos: {pontos}')
     print('1-listar missoes')
     print('2-adicionar missao')
@@ -25,7 +30,7 @@ while True:
     match menu:
         case 1:
             for i in range(len(missoes)):
-                print(f"\nmissao: {missoes[i]}\n")
+                print(f"\n{i+1}missao: {missoes[i]}\n")
         case 2:
             missao=input("Digite a missao que deseja: ")
             missoes.append(missao)
@@ -66,8 +71,10 @@ while True:
                     numero = random.randrange(len(recompensas))
                     print(f"\nrecompensa: {recompensas[numero]}\n")
                     pontos -= 500
+                elif resposta == 'nao' or resposta == 'não' or resposta == 'n':
+                    print('ok')
                 else:
-                    print("ok!!!!!")
+                    print("TU É LESO?")
             else:
                 print("voce NÃO tem pontos o suficiente para resgatar uma recompensa")
         case 9:
