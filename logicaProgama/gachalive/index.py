@@ -1,18 +1,22 @@
 import random
-missoes=[]
+import missoes as Missoes
+
+Missoes_nConcluidas=["lavar"]
+Missoes_Concluidas=[]
 recompensas=[]
 nome=""
 pontos=1500
 nome=input("ola usuario nos informe seu nome: ")
 
 while True:
+    print(Missoes_Concluidas)
     for i in range(30):
         print("-",end="")
     print('\n')
-    if len(missoes) > 2:
+    if len(Missoes_nConcluidas) > 1:
         print('algumas missoes ja registradas')
         for i in range(2):
-            print(f'{i+1}° missao : {missoes[i]}')
+            print(f'{i+1}° missao : {Missoes_nConcluidas[i]}')
     print(f'\nNome: {nome} \nPontos: {pontos}')
     print('1-listar missoes')
     print('2-adicionar missao')
@@ -29,26 +33,13 @@ while True:
     menu=int(input('O que deseja fazer: '))
     match menu:
         case 1:
-            for i in range(len(missoes)):
-                print(f"\n{i+1}missao: {missoes[i]}\n")
+            Missoes.Listar_Missoes(Missoes_nConcluidas)
         case 2:
-            missao=input("Digite a missao que deseja: ")
-            missoes.append(missao)
-            print("missao adicionada com sucesso\n")
+            Missoes_nConcluidas.append(Missoes.Criar_Missoes())
         case 3:
-            missao=input('digite a missao que deseja deletar: ')
-            if missao in missoes:
-                missoes.remove(missao)
-                print('missao removida com sucesso\n')
-            else:
-                print('missao nao encontrada\n')
+            Missoes.Deletar_Missoes(Missoes_nConcluidas)
         case 4:
-            missao=input('digite a missao que deseja concluir: ')
-            if missao in missoes:
-                print('missao concluida com sucesso\n')
-                pontos += 100
-            else:
-                print('missao nao encontrada\n')
+            pontos = Missoes.Concluir_Missoes(pontos, Missoes_nConcluidas,  Missoes_Concluidas)
         case 5:
             for i in range(len(recompensas)):
                 print(f"\nrecompensa: {recompensas[i]}\n")
