@@ -37,7 +37,7 @@ def validarM(nome, Missoes_nConcluidas):
     print('missao nao encontrada\n')
     return False 
 
-rrr
+
 
 
 Missoes_nConcluidas=["Teste"]
