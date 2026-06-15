@@ -28,7 +28,7 @@ def Concluir_Missoes(pontos, Missoes_nConcluidas, Missoes_Concluidas):
         print('missao nao encontrada\n')
     return pontos
 
-def validar(nome, Missoes_nConcluidas):
+def validarM(nome, Missoes_nConcluidas):
     if nome in Missoes_nConcluidas:
         return True
     print('missao nao encontrada\n')
