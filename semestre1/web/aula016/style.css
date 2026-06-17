@@ -70,5 +70,18 @@ nav{
 }
 
 .banner{
-    background: url(img/prato.png) 0.3%;
+    padding: 60px 0;
+    background: url(img/prato.png) no-repeat right center, #000;
+    background-size: auto 200%;
+}
+
+.banner .bt{
+    float: none;
+    text-align: left;
+    margin-top: 40px;
+}
+
+.destaque{
+    color: #fff;
+    margin-left: 20px;
 }
