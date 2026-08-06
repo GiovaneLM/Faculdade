@@ -10,8 +10,11 @@ def div(n1,n2):
 def mul(n1,n2):
     return (n1*n2)
 
+def pot(n1,n2):
+    return (n1**n2)
 
-operacao=['+','-','/','*']
+
+operacao=['+','-','/','*','^']
 continua="S"
 while True:
     if continua !='S' and continua !='SIM':
@@ -22,7 +25,9 @@ while True:
             op='k'
             n1=float(input('Digite um numero: '))
             while op not in operacao:
-                op=input('Digite uma operação ( + , - , / , * ): ')
+                op=input('Digite uma operação ( + , - , / , * , ^ ): ')
+                if op not in operacao:
+                    print('😡 DIGITE UMA OPERAÇÃO valida!')
             n2=float(input('Digite um numero: '))
             break
         except:
@@ -35,5 +40,7 @@ while True:
         print(f'divisão {n1} / {n2} = {div(n1,n2)}')
     if op == '*':
         print(f'multiplicação {n1} * {n2} = {mul(n1,n2)}')
+    if op == '^':
+            print(f'potencia {n1} ^ {n2} = {pot(n1,n2)}')
 
     continua=input("Continua (S/N): ").upper()
