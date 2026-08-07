@@ -1,0 +1,5 @@
+<?php
+
+$aluno = "giovane"
+
+?>
