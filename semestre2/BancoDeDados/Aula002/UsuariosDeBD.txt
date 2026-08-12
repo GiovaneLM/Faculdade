@@ -1,0 +1,24 @@
+Tipos de usuários os quais usam o Banco de Dados:
+
+- Administrador de banco de dados (DBA): controle de diversas funcionalidades
+
+do SGBD, tais como:
+
+      &bull;definição do esquema conceitual;
+
+      &bull;definição da estrutura de armazenamento e métodos de acesso;
+
+      &bull;modificação do esquema conceitual, estrutura de armazenamento e métodos de acesso. Usa SQL;
+
+      &bull;concessões de autorização de acesso;
+
+      &bull;especificação de restrições de integridade;
+
+      &bull;controle das operações de recuperação após falhas.
+
+- Usuários especializados: interagem diretamente com o SGBD. Resposnsaveis pela modelagem dos dados. Usam SQL;
+
+- Programadores de aplicação: definem aplicações para acesso aos dados, usam SQl para o acesso;
+
+- Usuários ocasionais: utilizam aplicações que acessam o BD. Tem acesso de forma indireta. Nunca acessam via SQL.
+

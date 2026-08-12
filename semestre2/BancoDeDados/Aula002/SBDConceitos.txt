@@ -1,0 +1,10 @@
+Este exemplo mostra que um Banco de Dados também é um sistema (aplicativo), pois é composto por:
+
+        SBD    =   SGBD   + Repositorio Proprio, sendo que
+
+SBD= Sistema de banco de dados
+
+SGBD = Sistema gerenciados do banco de dados
+
+Repositório Proprio = local onde poderemos armazenar nossos modelos de dados.
+

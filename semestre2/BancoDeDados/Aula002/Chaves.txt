@@ -1,0 +1,45 @@
+Existem tres tipos de chaves, as quais são consideradas benefícios que o Banco de Dados oferece e podem ser aplicadas numa tabela. As chaves podem ser classificadas de duas formas:
+
+      - Simples = quando a chave é definida com apenas um campo da tabela.
+
+      - Composta = quando a chave é definida com dois ou mais campos da tabela.
+
+As chaves podem ser consideradas como INDICES, permitindo acesso rápido a informação.
+
+Tipos de Chaves:
+
+- Chave Primária (Primary Key) , conhecida como PK: É representada por um (ou mais) campo, o qual permite identificar uma unica linha da tabela, sobre as demais. Acha uma entre todas. Logo, a chave primária não permite que seu campo ( ou a combinação de valores entre campos) tenha valor repetido. Logo garante o principio da UNICIDADE. (qualidade ou estado de ser único). IMPORTANTE: A tabela poderá ter apenas uma chave primária, simples ou composta.
+
+Exemplo:  Uma tabela de ALUNOS possui como campos: a MATRÍCULA , RG, UF, CPF e o NOME. Se definirmos que o campo MATRÍCULA será a PK, o Banco de Dados (SGBD) não vai permitir que este campo repita o numero de uma matricula, logo poderemos achar de forma direta um aluno, entre vários. Um exemplo de PK composta seria a definição da tabela de ALUNO, pelos campos : UF + RG, pois sabemos que o numero da carteira de identidade poderá se repetir entre os estados do pais, logo a sua combinação de valores, por exemplo: RS+ 35287855 permitirá identificadar de forma unica um aluno, assim como SP + 35287855 acharia outro aluno.
+
+- Chave Alternativa (Alternate Key) , conhecida como AK: É representada por um (ou mais) campo, o qual permite identificar uma unica linha da tabela, sobre as demais. Acha uma entre todas. Logo, a chave alternativa não permite que seu campo ( ou a combinação de campos) tenha valor repetido. Logo garante o principio da UNICIDADE. (qualidade ou estado de ser único). IMPORTANTE: A tabela poderá ter uma ou mais chave alternativa, simples ou composta.
+
+NOTA: o conceito da AK é o mesmo da PK, na essencia, a AK só não é chamada de PK, por que alguem na tabela já é.
+
+Exemplo:  Se na mesma tabela de ALUNOS, o qual vimos que possui como campos: a MATRÍCULA , RG, UF, CPF e o NOME, e temos definido o campo MATRÍCULA como PK, poderemos garantir que o campo CPF também não tenha valor em seu campo repetido, logo poderemos definir que este campo CPF seja uma AK. Idem aos campos UF+ RG, os quais também poderemos garantir que a combinação de valores entre estes dois campos não se repita.
+
+No final, a tabela ALUNOS poderá ter como chaves: 
+
+                PK = Matricula, simples
+
+                AK = CPF, simples
+
+               AK = UF + RG , composta
+
+- Chave Estrangeira (Foreing Key) , conhecida como FK: É representada por um (ou mais) campo, o qual representa a PK de outra tabela. Esta a chave permite que seu campo ( ou a combinação de campos) tenha valor repetido. Garante o principio da INTEGRIDADE REFERENCIAL. (que os valores existam entre as tabelas). IMPORTANTE: A tabela poderá ter uma ou mais chave estrangeira, simples ou composta.
+
+Exemplo:  Se na mesma tabela de ALUNOS, o qual vimos que possui como campos: a MATRÍCULA , RG, UF, CPF e o NOME, e temos definido o campo MATRÍCULA como PK. Poderemos ter uma nova tabela, de TURMA, o qual possui como campos: NUMERO DA TURMA, TURNO, DIA DA SEMANA, DISCIPLINA e a MATRICULA. O campo MATRÍCULA da tabela de TURMA poderá ser uma chave estrangeira com a tabela de ALUNOS, pois na tabela de ALUNOS, este campo é a PK. Assim poderemos garantir que uma matricula existente na tabela de TURMAS, exista na tabela de ALUNOS. Não seria diferente, também definir na tabela de TURMAS uma PK, o qual poderemos colocar no campo NUMERO DA TURMA.
+
+Em resumo, temos como chaves entre as tabelas:
+
+ALUNOS  -> PK(simples) = Matricula
+
+          AK(simples) = CPF 
+
+          AK(composta) = UF + RG 
+
+TURMAS  -> PK(simples) = NUMERO DA TURMA
+
+            FK (simples) = MATRICULA, com a tabela de ALUNOS.
+
+Lembrando que estas chaves são indices, logo teremos consultas rápidas por estes campos.
