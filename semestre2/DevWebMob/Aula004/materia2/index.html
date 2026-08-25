@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 80%;
+            margin: 0 auto;
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            transition: all 0.5s ease;
+        }
+        .card{
+            text-align: center;
+            width: 180px;
+            padding: 20px 10px;
+            border-radius: 12px;
+            box-shadow: 0 0 4px #333; 
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            margin: 25px;
+        }
+        .card h2{
+            margin-bottom: 0;
+            text-transform: uppercase;
+            font-size: 14px;
+            color: #333;
+            transition: all 0.5s ease;
+        }
+        .card::before{
+            content: "";
+            background: #333;
+            width: 100%;
+            height: 0;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+        .card:hover::before{
+            height: 50%;
+        }
+        .card:hover h2{
+            color:#ddd
+        }
+        .card:hover{
+            cursor: pointer;
+            box-shadow: 4px 4px 12px #333;
+            transform: translate(-5px,-5px) rotate(-1deg);
+        }
+        .card:hover img{
+            transform: scale(1.05);
+        }
+        .card.top::before{
+            bottom: auto;
+            top: 0;
+            background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 100%);
+        }
+        .card.top:hover h2{
+            color: #333;
+        }
+
+        /*esquerda para direita*/
+        .card.left::before{
+            width: 0;
+            height: 100%;
+        }
+        .card.left:hover::before{
+            width: 100%;
+            
+        }
+        /*direita para esquerda*/
+        .card.right::before{
+            width: 0;
+            height: 100%;
+            left: auto;
+        }
+        .card.right:hover::before{
+            width: 100%;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="img/alienmaconha.png" alt="">
+            <h2>produto</h2>
+        </div>
+
+        <div class="card top">
+            <img src="img/alienmaconha.png" alt="">
+            <h2>produto</h2>
+        </div>
+
+        <div class="card left">
+            <img src="img/alienmaconha.png" alt="">
+            <h2>produto</h2>
+        </div>
+
+        <div class="card right">
+            <img src="img/alienmaconha.png" alt="">
+            <h2>produto</h2>
+        </div>
+    </div>
+</body>
+</html>
