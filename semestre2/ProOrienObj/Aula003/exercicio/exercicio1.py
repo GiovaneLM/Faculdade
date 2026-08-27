@@ -37,6 +37,18 @@ class Camisa():
         print(f'Tipo de Gola: {self.tipo_gola}')
         print(f'Quantidade no Estoque: {self.quantidade_estoque}')
 
+    def venda(self):
+        while True:
+            try:
+                quantidade_venda = int(input('quantidade a ser vendida de camisas: '))
+                break
+            except:
+                print('digite algo valido')
+        if quantidade_venda <= self.quantidade_estoque:
+            self.quantidade_estoque -= quantidade_venda
+        else:
+            print('a quantidade que esta tentando vender nao bate com a quantidade em estoque')
+
 
 def entrada_de_dados():
     cor = input('Cor: ')
@@ -66,4 +78,6 @@ def entrada_de_dados():
 cor,tamanho,preco,tipo_gola,quantidade_estoque=entrada_de_dados()
 
 renner = Camisa(cor,tamanho,preco,tipo_gola,quantidade_estoque)
+renner.exibir_informacoes()
+renner.venda()
 renner.exibir_informacoes()
