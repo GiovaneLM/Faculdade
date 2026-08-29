@@ -23,7 +23,7 @@
 # Conteúdo gerado com suporte de Inteligência Artificial para estruturação pedagógica e adaptado, revisado e validado tecnicamente pelo Professor.  
 
 class Camisa():
-    def __init__(self,cor,tamanho,preco,tipo_gola,quantidade_estoque,):
+    def __init__(self,cor,tamanho,preco,tipo_gola,quantidade_estoque):
         self.cor = cor
         self.tamanho = tamanho
         self.preco = preco
