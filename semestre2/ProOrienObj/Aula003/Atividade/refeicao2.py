@@ -2,7 +2,7 @@ class Receita():
     def __init__(self, nome, porcoes):
         self.nome = nome;
         self.porcoes = porcoes;
-        self.fator = self.porcoes / 1
+        self.fator = self.porcoes / 5
 
     def calculo_de_porcoes(self):
         # para a massa dos nuggets
