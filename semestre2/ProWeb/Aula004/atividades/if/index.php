@@ -10,7 +10,17 @@ Se a latência for maior que 50ms e menor ou igual a 150ms, exibir:
 "WARNING: Conexão Aceitável, mas requer atenção"
 Se a latência for maior que 150ms, exibir: "ERRO: Latência Alta! Verifique o link." -->
 
-<?php 
-    
+<?php
+
+$ms = 50;
+
+$retorno = match (true) {
+    $ms == 0 => "CRÍTICO: Equipamento Inacessível (Time Out)",
+    $ms <= 50 => "OK: Conexão Excelente",
+    $ms <= 150 => "WARNING: Conexão Aceitável, mas requer atenção",
+    default => "ERRO: Latência Alta! Verifique o link."
+};
+
+echo $retorno;
 
 ?>
