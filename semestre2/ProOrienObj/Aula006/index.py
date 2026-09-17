@@ -19,8 +19,10 @@ class Televisao():
             if self.volume > 100:
                 self.volume = 100
             return
-        if volume.isdigit() and volume < 100:
-            self.volume = volume
+        if volume.isdigit() and int(volume) < 100:
+            self.volume = int(volume)
+        else:
+            print(f'volume {volume} indevido')
 
     def estadoTv(self):
         print(f'{self.modeloTV}\n'
@@ -32,4 +34,6 @@ tv1=Televisao('LG 55"')
 tv1.estadoTv()
 tv1.ligar()
 tv1.aumentarVolume(None)
+tv1.estadoTv()
+tv1.aumentarVolume('70')
 tv1.estadoTv()
