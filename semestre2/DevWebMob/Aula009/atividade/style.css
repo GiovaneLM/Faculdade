@@ -1,0 +1,24 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.fundo{
+    width: 100%;
+    height: 100vh;
+    background: pink url(img/ferrari-icon.png) no-repeat center;
+}
+
+@media  (min-width: 496px) and (max-width: 642px) {
+    .fundo{
+        background:  pink url(img/motorcycle-icon.png) no-repeat center;
+    }
+    
+}
+
+@media  (max-width: 496px) {
+    .fundo{
+        background:  pink url(img/bike-icon.png) no-repeat center;
+    }
+    
+}
