@@ -21,7 +21,7 @@
 			</ul>
 		</nav>
 	</header>
-	<aside id="abrir">
+	<aside id="abrir" class="centralizado">
 		<div class="fechar">
 			<a href="#x">X</a>
 		</div>
@@ -34,8 +34,6 @@
 			</ul>
 		</nav>
 	</aside>
-	<!-- Aparecer depois de clicar no menu -->
-	<div class="mask"></div>
 
 	<section id="banner">
 		<div class="conteudo">
@@ -43,21 +41,6 @@
 		</div>
 	</section>
 
-	
-	<script>
-		const abrir = document.querySelector("#abrir");
-		const bt = document.querySelector(".menu-responsive");
-		const fechar = document.querySelector(".mask"); 
-
-		// atribuir evento de click
-		bt.addEventListener("click", () => {
-			abrir.classList.add("open")
-		});
-		// Atribuir evento de fechar ao clicar na class mask
-		fechar.addEventListener*("click", () => {
-			abrir.classList.remove("open");
-		});
-	</script>
 
 </body>
 </html>
