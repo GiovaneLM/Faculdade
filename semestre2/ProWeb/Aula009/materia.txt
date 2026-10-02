@@ -1,0 +1,55 @@
+C reate INSERT
+R ead   SELECT
+U pdate UPDATE
+D elete DELETE
+
+
+
+EXEMPLOS DE INSERT
+
+INSERT INTO usuarios (nome,email,senha,obs,data) 
+VALUES ("Model","model@email.com","teste","","2026-09-10")
+
+INSERT INTO usuarios (email,senha,nome,data,obs) 
+VALUES ("gio@email.com","admin123","Giovane","2026-09-01","Novo Admin")
+
+INSERT INTO usuarios (nome,email,senha,data) 
+VALUES ("Guilherme", "gui@email.com", "admin", NOW())
+
+INSERT INTO usuarios (nome,email,senha,data) 
+VALUES ("carlos", "k@email.com", "teste", NOW()),
+("Outro", "o@email.com", "nada", NOW())
+
+
+EXEMPLO DE UPDATE
+
+UPDATE usuarios SET nome = "Gabriel Model"  - METODO ERRADO POIS MUDA O NOME DE TODOS OS USUARIOS 
+
+UPDATE usuarios SET nome = "Giovane" WHERE id = 2    - certo
+
+UPDATE usuarios SET nome = "fernando",email="fe@email.com" WHERE id = 4
+
+UPDATE usuarios SET obs = "sem obs" WHERE obs = ""
+UPDATE usuarios SET nome = "Otavio" WHERE id = 6
+
+
+EXEMPLO DE SELECT
+
+SELECT nome,email FROM usuarios;
+
+SELECT * FROM `usuarios` ORDER BY nome
+
+SELECT * FROM `usuarios` ORDER BY data DESC
+
+SELECT * FROM `usuarios` ORDER BY data DESC,nome ASC
+
+SELECT * FROM `usuarios`  WHERE data >= "2026-10-02"
+
+SELECT * FROM `usuarios`  WHERE nome LIKE "model"
+
+SELECT * FROM `usuarios`  WHERE nome LIKE "%model"
+
+
+
+
+DELETE FROM usuarios WHERE id = 5
