@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Lista de Usuários</h1>
-    <h2><?php insertUsers($conecta);  ?></h2>
+    <?php insertUsers($conecta);  ?>
     <form method="post">
         <input type="text" name="nome" id="" placeholder="nome" require>
         <input type="email" name="email" id="" placeholder="email" require>
@@ -30,6 +30,7 @@
                 <th>Nome</th>
                 <th>E_mail</th>
                 <th>Data Cadastro</th>
+                <th>Açoes</th>
             </tr>
         </thead>
         <tbody>
@@ -41,6 +42,10 @@
                 <td><?php echo $usuario['email'] ?></td>
                 <td><?php $data =date_create($usuario['data']);
                         echo date_format($data, "d/m/Y");?></td>
+                <td>
+                    <a href="deletar.php?id=<?php echo $usuario['id']; ?>&nome=<?php echo $usuario['nome']; ?>">excluir</a> - 
+                    <a href="editar.php?id=<?php echo $usuario['id']; ?>">editar</a>
+                </td>
             </tr>
             <?php endforeach ?>
         </tbody>
