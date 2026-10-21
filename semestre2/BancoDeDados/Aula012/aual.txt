@@ -1,0 +1,63 @@
+update cliente set telefone = null where cod_cliente = 'c2';
+
+insert into cliente(cod_cli,nome,cidade,uf,status,limite) values('c10','novo cliente','porto alegre','rs','bom',200)
+
+desc cliente
+
+--comando que remove dados
+--remove o cliente c10
+delete cliente where cod_cli = 'c10';
+
+--controle transacional
+begin transaction
+......
+......
+--confirma?
+commit
+
+--quero desfazer
+rollback transaction
+
+--mostre os dados
+select * from cliente
+
+--mostre o nome e a cidade dos clientes cadastrados
+--residem em canoas e limite > 100
+select nome,cidade,limite from cliente where cidade = 'Canoas' and limite > 100;
+
+--mostre o codigo e limite dos clientes
+--que tenham entre 10 e 200
+select cod_cli,limite from cliente where limite >= 1 and limite <= 2000;
+
+--usando o comando between
+select cod_cli,limite from cliente where limite between 1 and 2000;
+
+--select PROJEÇÃO from ORIGEM DA TABELA(S)
+
+select 10 + 5 - 6 from dual;
+
+select 10 + 5 - 6 from cliente;
+
+select upper(nome),nome from cliente;
+
+
+--questao 1. Mostre todos os dados de clientes
+select * from cliente;
+
+--questao 2. Mostre todos os dados da tabela de movimento
+select * from movimento;
+
+--questao 3. Mostre o nome de todos os produtos cadastrados
+select * from produto;
+
+--questao 4. Mostre o nome e cidade de todos os clientes
+select nome,cidade from cliente;
+
+--questao 5. Mostre o nome e cidade de clientes que possuem status bom
+select nome,cidade from cliente where status = 'bom';
+
+--questao 6. Mostre o nome e preço dos produtos com preço maior que R$1,00 e menor que R$2,00 da categoria Sabão
+select nome,preco from produto where preco >= 1 and preco <= 2 and categoria = 'sabÃ£o';
+
+--questao 7. Mostre os dados de todos os pedidos, do cliente c1, para pedidos realizados no período de 01/01/1997 a 31/12/1997.
+select * from pedido where cod_cli = 'c1' and data_elab between '01-01-1997' and '12-31-1997';

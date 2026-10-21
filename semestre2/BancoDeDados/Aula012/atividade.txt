@@ -1,0 +1,21 @@
+
+--questao 1. Mostre todos os dados de clientes
+select * from cliente;
+
+--questao 2. Mostre todos os dados da tabela de movimento
+select * from movimento;
+
+--questao 3. Mostre o nome de todos os produtos cadastrados
+select * from produto;
+
+--questao 4. Mostre o nome e cidade de todos os clientes
+select nome,cidade from cliente;
+
+--questao 5. Mostre o nome e cidade de clientes que possuem status bom
+select nome,cidade from cliente where status = 'bom';
+
+--questao 6. Mostre o nome e preço dos produtos com preço maior que R$1,00 e menor que R$2,00 da categoria Sabão
+select nome,preco from produto where preco >= 1 and preco <= 2 and categoria = 'sabÃ£o';
+
+--questao 7. Mostre os dados de todos os pedidos, do cliente c1, para pedidos realizados no período de 01/01/1997 a 31/12/1997.
+select * from pedido where cod_cli = 'c1' and data_elab between '01-01-1997' and '12-31-1997';
