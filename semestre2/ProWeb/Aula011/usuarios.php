@@ -1,0 +1,59 @@
+<?php 
+    require_once "function.php"; 
+    session_start();
+    isset($_SESSION['ativa']) ? "" : header("location:index.php");
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 10</title>
+</head>
+<body>
+    <h1>Lista de Usuários</h1>
+    <?php insertUsers($conecta);  ?>
+    <a href="logout.php">sair</a>
+    <form method="post">
+        <input type="text" name="nome" id="" placeholder="nome" require>
+        <input type="email" name="email" id="" placeholder="email" require>
+        <input type="password" name="senha" id="" placeholder="senha" require>
+        <input type="submit" value="cadastrar" name="cadastrar">
+    </form>
+
+
+
+
+
+
+
+
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>E_mail</th>
+                <th>Data Cadastro</th>
+                <th>Açoes</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php $usuarios = buscar($conecta);
+            //print_r($usuarios);
+            foreach ($usuarios as $usuario) : ?>
+            <tr>
+                <td><?php echo $usuario['nome'] ?></td>
+                <td><?php echo $usuario['email'] ?></td>
+                <td><?php $data =date_create($usuario['data']);
+                        echo date_format($data, "d/m/Y");?></td>
+                <td>
+                    <a href="deletar.php?id=<?php echo $usuario['id']; ?>&nome=<?php echo $usuario['nome']; ?>">excluir</a> - 
+                    <a href="editar.php?id=<?php echo $usuario['id']; ?>">editar</a>
+                </td>
+            </tr>
+            <?php endforeach ?>
+        </tbody>
+    </table>
+</body>
+</html>
