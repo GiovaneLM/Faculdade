@@ -1,0 +1,103 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background: #444;
+    overflow: hidden;
+    position: relative;
+}
+
+img {
+    width: 50px;
+    height: auto;
+    position: absolute;
+    animation: travel 12s linear infinite;
+}
+
+@keyframes travel {
+    /* Início: canto superior esquerdo */
+    0% {
+        top: 20px;
+        left: 20px;
+        transform: rotate(45deg);
+    }
+
+    /* Segue para a direita */
+    15% {
+        top: 20px;
+        left: calc(100vw - 70px);
+        transform: rotate(45deg);
+    }
+
+    /* Vira para a diagonal */
+    17% {
+        top: 20px;
+        left: calc(100vw - 70px);
+        transform: rotate(180deg);
+    }
+
+    /* Desce na diagonal para a esquerda */
+    32% {
+        top: calc(100vh - 70px);
+        left: 20px;
+        transform: rotate(180deg);
+    }
+
+    /* Vira para a direita */
+    34% {
+        top: calc(100vh - 70px);
+        left: 20px;
+        transform: rotate(45deg);
+    }
+
+    /* Termina o Z no canto inferior direito */
+    49% {
+        top: calc(100vh - 70px);
+        left: calc(100vw - 70px);
+        transform: rotate(45deg);
+    }
+
+    /* Inicia o retorno para a esquerda */
+    51% {
+        top: calc(100vh - 70px);
+        left: calc(100vw - 70px);
+        transform: rotate(225deg);
+    }
+
+    /* Retorna até o canto inferior esquerdo */
+    66% {
+        top: calc(100vh - 70px);
+        left: 20px;
+        transform: rotate(225deg);
+    }
+
+    /* Vira para subir na diagonal */
+    68% {
+        top: calc(100vh - 70px);
+        left: 20px;
+        transform: rotate(0deg);
+    }
+
+    /* Volta pela diagonal até o topo direito */
+    83% {
+        top: 20px;
+        left: calc(100vw - 70px);
+        transform: rotate(0deg);
+    }
+
+    /* Vira para a esquerda */
+    85% {
+        top: 20px;
+        left: calc(100vw - 70px);
+        transform: rotate(225deg);
+    }
+
+    /* Retorna ao início */
+    100% {
+        top: 20px;
+        left: 20px;
+        transform: rotate(225deg);
+    }
+}
