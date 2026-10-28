@@ -1,0 +1,26 @@
+update produto set categoria = 'sabão' where cod_prod in (1,3);
+select * from produto;
+select * from pedido;
+select * from cliente;
+select * from movimento;
+--questao 1
+select nome from cliente;
+
+--questao 2
+select nome,status,cidade from cliente;
+
+--questao 3
+select nome,status,cidade from cliente where status != 'bom';
+
+--questao 4
+select cliente.nome from cliente ,pedido where cliente.cod_cli = pedido.cod_cli;
+
+--questao 5
+select cliente.nome,produto.nome 
+from cliente
+inner join pedido on (cliente.cod_cli = pedido.cod_cli )
+inner join movimento on (pedido.nro_ped = movimento.nro_ped)
+inner join produto on (movimento.cod_prod = produto.cod_prod)
+where movimento.qtde > 10 and movimento.qtde < 20;
+
+--questao 6

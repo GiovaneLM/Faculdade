@@ -1,0 +1,21 @@
+select nome,cidade from cliente where limite > 10;
+
+select distinct cidade from cliente;
+
+select nome,nro_ped from cliente,pedido where cliente.cod_cli = pedido.cod_cli;
+
+select nome,nro_ped from cliente inner join pedido on ( cliente.cod_cli = pedido.cod_cli);
+
+select c.nome , p.nome
+from cliente c , pedido ped , movimento m, produto p
+where c.cod_cli = ped.cod_cli and --junçao entre cliente e pedido
+        ped.nro_ped = m.nro_ped and
+        m.cod_prod = p.cod_prod
+        order by c.nome asc, p.nome desc;
+
+select c.nome , p.nome
+from cliente c
+inner join pedido ped on ( c.cod_cli = ped.cod_cli )--junçao entre cliente e pedido
+inner join movimento m on (ped.nro_ped = m.nro_ped)
+inner join produto p on (m.cod_prod = p.cod_prod)
+order by c.nome asc, p.nome desc;
