@@ -7,11 +7,60 @@ $nameDb = "lojinha";
 $conecta = mysqli_connect($server,$userDb,$passDb,$nameDb);
 
 
+#################CRIAÇÃO DE TABELAS E USUARIO#################
+function criarTabelaUsuarios($conecta){
+    $sql = "CREATE TABLE IF NOT EXISTS usuarios (
+        id_user INT AUTO_INCREMENT PRIMARY KEY,
+        nome VARCHAR(100) NOT NULL,
+        email VARCHAR(150) NOT NULL UNIQUE,
+        senha VARCHAR(255) NOT NULL,
+        data DATETIME DEFAULT CURRENT_TIMESTAMP
+    )";
+
+    return mysqli_query($conecta, $sql);
+}
+
+function criarTabelaCategorias($conecta){
+    $sql = "CREATE TABLE IF NOT EXISTS categorias (
+        id_cat INT AUTO_INCREMENT PRIMARY KEY,
+        nome VARCHAR(100) NOT NULL,
+        data DATETIME DEFAULT CURRENT_TIMESTAMP
+    )";
+
+    return mysqli_query($conecta, $sql);
+}
+
+function criarTabelaProdutos($conecta){
+    $sql = "CREATE TABLE IF NOT EXISTS produtos (
+        id_pro INT AUTO_INCREMENT PRIMARY KEY,
+        nome VARCHAR(150) NOT NULL,
+        descricao TEXT,
+        preco DECIMAL(10,2) NOT NULL,
+        categoria INT NOT NULL,
+        data DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (categoria) REFERENCES categorias(id_cat)
+    ) ENGINE=InnoDB";
+
+    return mysqli_query($conecta, $sql);
+}
+
+function criarAdminPadrao($conecta){
+    $resultado = mysqli_query($conecta, "SELECT COUNT(*) AS total FROM usuarios");
+    $linha = mysqli_fetch_assoc($resultado);
+    if ($linha['total'] == 0) {
+        $nome  = "admin";
+        $email = "admin@email.com";
+        $senha = password_hash("admin12345", PASSWORD_DEFAULT);
+        $stmt = mysqli_prepare($conecta, "INSERT INTO usuarios (nome, senha, email) VALUES (?, ?, ?)");
+        mysqli_stmt_bind_param($stmt, "sss", $nome, $senha, $email);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+    }
+}
 
 
 
-
-
+#################BUSCAR#################
 function buscarProduto($conecta){
 $sql = "SELECT p.id_pro, p.nome, p.descricao, p.preco, p.data,c.nome AS categoria_nome
     FROM produtos p
@@ -22,8 +71,15 @@ $sql = "SELECT p.id_pro, p.nome, p.descricao, p.preco, p.data,c.nome AS categori
     return $dados;
 }
 
+
 function buscarCategorias($conecta){
-    $sql = "SELECT id_cat, nome FROM categorias ORDER BY nome";
+    $sql = "SELECT id_cat, nome, data FROM categorias ORDER BY nome";
+    $action = mysqli_query($conecta, $sql);
+    return mysqli_fetch_all($action, MYSQLI_ASSOC);
+}
+
+function buscarUsuarios($conecta){
+    $sql = "SELECT id_user, nome, email, data FROM usuarios ORDER BY nome";
     $action = mysqli_query($conecta, $sql);
     return mysqli_fetch_all($action, MYSQLI_ASSOC);
 }
@@ -32,7 +88,7 @@ function buscarCategorias($conecta){
 
 
 
-
+#################CADASTRAR AS COISAS#################
 function cadastrarCategoria($conecta){
     if(isset($_POST['cadastrarC'])){
         $nome = mysqli_real_escape_string($conecta,$_POST['nome']);
@@ -94,6 +150,8 @@ function cadastrarUsuario($conecta){
 }
 
 
+
+#################LOGIN#################
 function login($conecta){
     if (isset($_POST['logar'])) {
         $email = filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);
