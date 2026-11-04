@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Criar conta</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { painel: '#165f82', erro: '#d92d3a' }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-white font-sans text-neutral-800">
+
+  <main class="grid min-h-screen grid-cols-1 lg:grid-cols-[4fr_5fr]">
+
+    <!-- Coluna do formulário -->
+    <section class="flex items-center justify-center px-6 py-10">
+      <form id="form" class="w-full max-w-[472px]" novalidate>
+
+        <!-- Nome (começa em estado de erro, como na imagem) -->
+        <div class="mb-5">
+          <label for="nome" class="mb-2 block text-sm font-semibold">Nome</label>
+          <input id="nome" type="text" placeholder="Seu nome completo"
+            class="w-full rounded border border-neutral-300 px-4 py-3 text-sm placeholder:text-neutral-500 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-neutral-900/10">
+          <p id="erro-nome" class="mt-1 hidden text-xs text-erro">Nome completo é obrigatório</p>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-5">
+          <label for="email" class="mb-2 block text-sm font-semibold">Email</label>
+          <input id="email" type="email" placeholder="Seu email"
+            class="w-full rounded border border-neutral-300 px-4 py-3 text-sm placeholder:text-neutral-500 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-neutral-900/10">
+          <p id="erro-email" class="mt-1 hidden text-xs text-erro">Informe um email válido</p>
+        </div>
+
+        <!-- Senha -->
+        <div class="mb-5">
+          <label for="senha" class="mb-2 block text-sm font-semibold">Senha</label>
+          <div class="relative">
+            <input id="senha" type="password" placeholder="Digite a senha desejada"
+              class="w-full rounded border border-neutral-300 py-3 pl-4 pr-12 text-sm placeholder:text-neutral-500 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-neutral-900/10">
+            <button type="button" data-toggle="senha" aria-label="Mostrar ou ocultar senha"
+              class="absolute right-3 top-1/2 -translate-y-1/2 rounded p-1 text-neutral-500 hover:text-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Confirmar senha -->
+        <div class="mb-3">
+          <label for="confirmar" class="mb-2 block text-sm font-semibold">Confirmar senha</label>
+          <div class="relative">
+            <input id="confirmar" type="password" placeholder="Digite a senha novamente"
+              class="w-full rounded border border-neutral-300 py-3 pl-4 pr-12 text-sm placeholder:text-neutral-500 focus:border-neutral-900 focus:outline-none focus:ring-2 focus:ring-neutral-900/10">
+            <button type="button" data-toggle="confirmar" aria-label="Mostrar ou ocultar senha"
+              class="absolute right-3 top-1/2 -translate-y-1/2 rounded p-1 text-neutral-500 hover:text-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+          <p id="erro-senha" class="mt-1 hidden text-xs text-erro"></p>
+        </div>
+
+        <p class="mb-16 text-center text-xs font-semibold">
+          A senha deve conter: mais de 7 caracteres, letras e números
+        </p>
+
+        <!-- Termos -->
+        <label class="mb-6 flex cursor-pointer items-start gap-3 text-sm font-semibold">
+          <input id="termos" type="checkbox"
+            class="mt-0.5 h-4 w-4 shrink-0 rounded border-neutral-300 accent-black">
+          <span>
+            Estou ciente e concordo com o
+            <a href="#" class="underline">Termos de Uso</a>
+            e com a
+            <a href="#" class="underline">Políticas</a>
+            da Hotmart.
+          </span>
+        </label>
+        <p id="erro-termos" class="-mt-4 mb-4 hidden text-xs text-erro">Aceite os termos para continuar</p>
+
+        <button type="submit"
+          class="w-full rounded bg-neutral-950 py-3.5 text-sm font-bold text-white transition hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2">
+          Criar conta
+        </button>
+      </form>
+    </section>
+
+    <!-- Coluna da imagem (oculta no mobile) -->
+    <aside class="hidden items-center justify-center border border-neutral-900 bg-painel lg:flex">
+      <span class="text-xl text-white">Imagem</span>
+    </aside>
+
+  </main>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const nome = $('nome'), email = $('email'), senha = $('senha'), confirmar = $('confirmar'), termos = $('termos');
+
+    function marcarErro(input, erroEl, msg) {
+      input.classList.replace('border-neutral-300', 'border-erro');
+      if (msg) erroEl.textContent = msg;
+      erroEl.classList.remove('hidden');
+    }
+    function limparErro(input, erroEl) {
+      input.classList.replace('border-erro', 'border-neutral-300');
+      erroEl.classList.add('hidden');
+    }
+
+    // Mostrar / ocultar senha
+    document.querySelectorAll('[data-toggle]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const campo = $(btn.dataset.toggle);
+        campo.type = campo.type === 'password' ? 'text' : 'password';
+      });
+    });
+
+    // Remove o erro assim que a pessoa começa a corrigir
+    nome.addEventListener('input', () => limparErro(nome, $('erro-nome')));
+    email.addEventListener('input', () => limparErro(email, $('erro-email')));
+    senha.addEventListener('input', () => limparErro(senha, $('erro-senha')));
+    confirmar.addEventListener('input', () => limparErro(confirmar, $('erro-senha')));
+    termos.addEventListener('change', () => $('erro-termos').classList.add('hidden'));
+
+    $('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valido = true;
+
+      if (!nome.value.trim()) {
+        marcarErro(nome, $('erro-nome'));
+        valido = false;
+      }
+      if (!/^\S+@\S+\.\S+$/.test(email.value)) {
+        marcarErro(email, $('erro-email'));
+        valido = false;
+      }
+      const s = senha.value;
+      if (s.length <= 7 || !/[A-Za-z]/.test(s) || !/\d/.test(s)) {
+        marcarErro(senha, $('erro-senha'), 'A senha não atende aos requisitos');
+        valido = false;
+      } else if (s !== confirmar.value) {
+        marcarErro(confirmar, $('erro-senha'), 'As senhas não coincidem');
+        valido = false;
+      }
+      if (!termos.checked) {
+        $('erro-termos').classList.remove('hidden');
+        valido = false;
+      }
+
+      if (valido) alert('Conta criada com sucesso!');
+    });
+  </script>
+</body>
+</html>

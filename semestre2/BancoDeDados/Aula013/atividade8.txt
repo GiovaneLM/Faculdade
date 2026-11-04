@@ -24,3 +24,22 @@ inner join produto on (movimento.cod_prod = produto.cod_prod)
 where movimento.qtde > 10 and movimento.qtde < 20;
 
 --questao 6
+SELECT pr.nome
+FROM produto pr
+WHERE NOT EXISTS (
+    SELECT 1 
+    FROM movimento m 
+    WHERE m.cod_prod = pr.cod_prod);
+
+--questao 7
+SELECT DISTINCT c.nome
+FROM cliente c
+JOIN pedido p    ON p.cod_cli = c.cod_cli
+JOIN movimento m ON m.nro_ped = p.nro_ped
+WHERE m.qtde > 1;
+
+--questao 8
+SELECT pr.nome
+FROM movimento m
+JOIN produto pr ON pr.cod_prod = m.cod_prod
+WHERE m.nro_ped = 'ped2';
