@@ -1,0 +1,27 @@
+-- 1) Mostre o total de produtos cadastrados
+SELECT COUNT(*) AS QTD
+FROM produto;
+
+-- 2) Mostre a quantidade de pedidos feitos pelo cliente c1
+SELECT SUM(m.qtde) AS QTDTOT
+FROM movimento m
+INNER JOIN pedido p ON (m.nro_ped = p.nro_ped)
+WHERE p.cod_cli = 'c1';
+
+-- 3) Mostre a quantidade de clientes por estado
+SELECT uf, COUNT(*) AS QTD
+FROM cliente
+GROUP BY UF;
+
+-- 4) Mostre a quantidade total pedida por produto, que seja superior a 34
+SELECT p.cod_prod, SUM(m.qtde) AS QTD
+FROM movimento m
+INNER JOIN produto p ON (m.cod_prod = p.cod_prod)
+GROUP BY p.cod_prod
+HAVING SUM(m.qtde) > 34;
+
+-- 5) Mostre a quantidade de clientes, por cidade, os quais fizeram algum pedido
+SELECT c.cidade, COUNT(ped.nro_ped) AS QTD
+FROM cliente c
+INNER JOIN pedido ped ON (ped.cod_cli = c.cod_cli)
+GROUP BY cidade;

@@ -1,0 +1,6 @@
+select count(*) 
+from cliente 
+where telefone is null;
+
+--
+select max(preco),min(preco),sum(preco),count(*),avg(preco) from produto;
