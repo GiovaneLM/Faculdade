@@ -84,7 +84,15 @@ function buscarUsuarios($conecta){
     return mysqli_fetch_all($action, MYSQLI_ASSOC);
 }
 
-
+function buscarCategoria($conecta, $id){
+    $id = filter_var($id,FILTER_VALIDATE_INT);
+    if(!empty($id)){
+        $sql = "SELECT * FROM categorias WHERE id_cat = $id";
+        $action = mysqli_query($conecta,$sql);
+        $dados = mysqli_fetch_assoc($action);
+        return $dados;
+    }
+}
 
 
 
@@ -173,6 +181,141 @@ function login($conecta){
             }
         }else{
             echo "usuario ou senha invalidos";
+        }
+    }
+}
+
+#################DELETAR#################
+function deleteCategoria($conecta, $id){
+    if (is_numeric($id) and !empty($id)) {
+        $sql = "DELETE FROM categorias WHERE id_cat = $id";
+        $action = mysqli_query($conecta,$sql);
+        if ($action) {
+            echo "Categoria deletada com sucesso!";
+            //echo "<script> window.location.ref = 'isiarios.php' </script>";
+            header("Refresh: 2; url=cad_categoria.php");//para ter redicirionamento com delay
+            //header("Location: usuarios.php"); //para ter redirecionamento automatico
+        }else{
+            echo "erro ao deletar Categoria!";
+        }
+    }
+}
+
+function deleteProduto($conecta, $id){
+    if (is_numeric($id) and !empty($id)) {
+        $sql = "DELETE FROM produtos WHERE id_pro = $id";
+        $action = mysqli_query($conecta,$sql);
+        if ($action) {
+            echo "Produto deletado com sucesso!";
+            //echo "<script> window.location.ref = 'isiarios.php' </script>";
+            header("Refresh: 2; url=cad_categoria.php");//para ter redicirionamento com delay
+            //header("Location: usuarios.php"); //para ter redirecionamento automatico
+        }else{
+            echo "erro ao deletar Produto!";
+        }
+    }
+}
+
+
+function deleteUsuario($conecta, $id){
+    if (is_numeric($id) and !empty($id)) {
+        $sql = "DELETE FROM usuarios WHERE id_user = $id";
+        $action = mysqli_query($conecta,$sql);
+        if ($action) {
+            echo "Usuario deletado com sucesso!";
+            //echo "<script> window.location.ref = 'isiarios.php' </script>";
+            header("Refresh: 2; url=cad_categoria.php");//para ter redicirionamento com delay
+            //header("Location: usuarios.php"); //para ter redirecionamento automatico
+        }else{
+            echo "erro ao deletar Usuario!";
+        }
+    }
+}
+
+
+#################EDITAR#################
+function EditarCategoria($conecta,$id){
+    $id = filter_var($id,FILTER_VALIDATE_INT);
+    if(!empty($id) and isset($_POST['atualizar'])){
+        $nome = mysqli_real_escape_string($conecta,$_POST['nome']);
+        $erros = [];
+        if(empty($nome)){
+            echo "Preencha todos os campos corretamente!";
+        }else{
+            /*if(empty($_POST['senha'])){
+                $sql = "UPDATE usuarios SET nome = '$nome' , email = '$email' , data = '$data' WHERE id = '$id'";
+            }else{
+                $sql = "UPDATE usuarios SET nome = '$nome' , email = '$email' , data = '$data' , senha = '$senha' WHERE id = '$id'";
+            }*/
+            $sql = "UPDATE categorias SET nome = '$nome'  ";
+            $sql .= " WHERE id_cat = $id ";
+            $action = mysqli_query($conecta,$sql);
+            if ($action) {
+                echo "categoria atualizada com sucesso";
+                header("Refresh: 2; url=cad_categoria.php");
+            }else{
+                echo "erro ao atualizar";
+            }
+        }
+    }
+}
+
+function EditarProduto($conecta,$id){
+    $id = filter_var($id,FILTER_VALIDATE_INT);
+    if(!empty($id) and isset($_POST['atualizar'])){
+        $nome = mysqli_real_escape_string($conecta,$_POST['nome']);
+        $email = filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);
+        $senha = password_hash($_POST['senha'],PASSWORD_DEFAULT);
+        $data = mysqli_real_escape_string($conecta,$_POST['data']);
+        $erros = [];
+        if(empty($nome) or empty($email)){
+            echo "Preencha todos os campos corretamente!";
+        }else{
+            /*if(empty($_POST['senha'])){
+                $sql = "UPDATE usuarios SET nome = '$nome' , email = '$email' , data = '$data' WHERE id = '$id'";
+            }else{
+                $sql = "UPDATE usuarios SET nome = '$nome' , email = '$email' , data = '$data' , senha = '$senha' WHERE id = '$id'";
+            }*/
+            $sql = "UPDATE usuarios SET nome = '$nome' , email = '$email' , data = '$data' ";
+            $sql .= !empty($_POST['senha']) ? " , senha = '$senha' " : "";
+            $sql .= " WHERE id = $id ";
+            $action = mysqli_query($conecta,$sql);
+            if ($action) {
+                echo "usuario atualizado com sucesso";
+                header("Refresh: 2; url=usuarios.php");
+            }else{
+                echo "erro ao atualizar";
+            }
+        }
+    }
+}
+
+function EditarUsuario($conecta,$id){
+    $id = filter_var($id,FILTER_VALIDATE_INT);
+    if(!empty($id) and isset($_POST['atualizar'])){
+        $nome = mysqli_real_escape_string($conecta,$_POST['nome']);
+        $email = filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);
+        $senha = password_hash($_POST['senha'],PASSWORD_DEFAULT);
+        $data = mysqli_real_escape_string($conecta,$_POST['data']);
+        $erros = [];
+        if(empty($nome) or empty($email)){
+            echo "Preencha todos os campos corretamente!";
+        }else{
+            /*if(empty($_POST['senha'])){
+                $sql = "UPDATE usuarios SET nome = '$nome' , email = '$email' , data = '$data' WHERE id = '$id'";
+            }else{
+                $sql = "UPDATE usuarios SET nome = '$nome' , email = '$email' , data = '$data' , senha = '$senha' WHERE id = '$id'";
+            }*/
+            $sql = "UPDATE usuarios SET nome = '$nome' , email = '$email' , data = '$data' ";
+            $sql .= !empty($_POST['senha']) ? " , senha = '$senha' " : "";
+            $sql .= " WHERE id = $id ";
+            $action = mysqli_query($conecta,$sql);
+            if ($action) {
+                echo "usuario atualizado com sucesso";
+                header("Refresh: 2; url=usuarios.php");
+            }else{
+                echo "erro ao atualizar";
+            }
         }
     }
 }

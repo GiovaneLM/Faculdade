@@ -71,7 +71,7 @@
                     <td><?= htmlspecialchars($p['categoria_nome']) ?></td>
                     <td><?= $p['data'] ? date('d/m/Y', strtotime($p['data'])) : '-' ?></td>
                     <td>
-                        <a href="deletar.php?id=<?= $p['id_pro'] ?>&nome=<?= urlencode($p['nome']) ?>" class="btn btn-sm btn-outline-danger">Excluir</a>
+                        <a href="deletar_produto.php?id_pro=<?= $p['id_pro'] ?>&nome=<?= urlencode($p['nome']) ?>" class="btn btn-sm btn-outline-danger">Excluir</a>
                         <a href="editar.php?id=<?= $p['id_pro'] ?>" class="btn btn-sm btn-outline-primary">Editar</a>
                     </td>
                 </tr>

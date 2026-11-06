@@ -47,8 +47,8 @@
                     <td><?= htmlspecialchars($c['nome']) ?></td>
                     <td><?= $c['data'] ? date('d/m/Y', strtotime($c['data'])) : '-' ?></td>
                     <td>
-                        <a href="deletar.php?id=<?= $c['id_cat'] ?>&nome=<?= urlencode($c['nome']) ?>" class="btn btn-sm btn-outline-danger">Excluir</a>
-                        <a href="editar.php?id=<?= $c['id_cat'] ?>" class="btn btn-sm btn-outline-primary">Editar</a>
+                        <a href="deletar_categoria.php?id_cat=<?= $c['id_cat'] ?>&nome=<?= urlencode($c['nome']) ?>" class="btn btn-sm btn-outline-danger">Excluir</a>
+                        <a href="editar_categoria.php?id_cat=<?= $c['id_cat'] ?>" class="btn btn-sm btn-outline-primary">Editar</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
