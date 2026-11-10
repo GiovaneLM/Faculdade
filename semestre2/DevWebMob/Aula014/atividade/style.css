@@ -1,0 +1,6 @@
+.carrossel{
+    overflow: hidden;
+}
+.carrossel img{
+    height: 90vh;
+}

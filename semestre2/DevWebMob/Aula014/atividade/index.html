@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <img src="img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="empresa.html">empresa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servico.html">serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="carrossel">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="img/solar1.jpg" class="d-block w-100 img-fluid" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Energia limpa para um futuro melhor</h5>
+                        <p>Invista em energia solar e contribua para um planeta mais sustentável.</p>
+                        <a href="servico.html" class="btn btn-success">Conheça nossos serviços</a>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="img/solar2.jpg" class="d-block w-100  img-fluid" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Economize na sua conta de luz</h5>
+                        <p>Produza sua própria energia e reduza seus gastos mensais.</p>
+                        <a href="contato.html" class="btn btn-success">Faça um orçamento</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/solar3.jpg" class="d-block w-100 img-fluid" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>O futuro da energia começa agora</h5>
+                        <p>Tenha mais economia e sustentabilidade com energia solar.</p>
+                        <a href="empresa.html" class="btn btn-success">Conheça nossa empresa</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">proximo</span>
+            </button>
+        </div>
+    </div>
+
+    <section class="container my-5">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2>Sobre Nós</h2>
+                <p>Somos uma empresa especializada em soluções de energia solar,oferecendo projetos personalizados para  residências e empresas.</p>
+                <p>Nossa missão é proporcionar economia, sustentabilidade e acesso a uma energia mais limpa e renovável.</p>
+                <p>Trabalhamos com responsabilidade, inovação, qualidade e compromisso com nossos clientes e com o meioambiente.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="img/solar4.jpg" class="img-fluid rounded" alt="Sistema de energia solar">
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="container my-5">
+        <h2 class="text-center mb-4">Nossos Serviços</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-sun fs-1 text-success"></i>
+                        <h5 class="card-title mt-3">Projeto Solar</h5>
+                        <p class="card-text"> Desenvolvemos projetos personalizados de energia solar para atender às necessidades de cada cliente.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-tools fs-1 text-success"></i>
+                        <h5 class="card-title mt-3">Instalação</h5>
+                        <p class="card-text">Realizamos a instalação de painéis solares com qualidade, segurança e eficiência.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-building fs-1 text-success"></i>
+                        <h5 class="card-title mt-3">Energia Residencial</h5>
+                        <p class="card-text">
+                            Soluções para residências que desejam economizar
+                            na conta de energia elétrica.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-buildings fs-1 text-success"></i>
+                        <h5 class="card-title mt-3">Energia Empresarial</h5>
+                        <p class="card-text"> Sistemas solares para empresas que buscam reduzir custos operacionais.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-gear fs-1 text-success"></i>
+                        <h5 class="card-title mt-3">Manutenção</h5>
+                        <p class="card-text">Serviços de manutenção e inspeção para manter o sistema funcionando corretamente.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-lightning-charge fs-1 text-success"></i>
+                        <h5 class="card-title mt-3">Consultoria Energética</h5>
+                        <p class="card-text">Orientação especializada para escolher a melhor solução de energia solar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="bg-success text-white text-center py-5">
+        <div class="container">
+            <h2>Faça um orçamento agora!</h2>
+            <p class="lead"> Invista em energia solar e comece a economizar na sua conta de luz. </p>
+            <a href="#"class="btn btn-light btn-lg"><i class="bi bi-whatsapp"></i>Fale conosco</a>
+        </div>
+    </section>
+
+
+
+
+
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <h5>Energia Solar</h5>
+            <p>Endereço: Rua Exemplo, 123 - Centro</p>
+            <p>Telefone: (00) 00000-0000</p>
+            <p>E-mail: contato@energiasolar.com.br</p>
+            <div class="mb-3">
+                <a href="#" class="text-white fs-4 mx-2"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-white fs-4 mx-2"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-white fs-4 mx-2"><i class="bi bi-whatsapp"></i></a>
+            </div>
+            <hr>
+            <p class="mb-0"> &copy; 2026 Energia Solar. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
