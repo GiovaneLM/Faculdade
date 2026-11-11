@@ -290,7 +290,10 @@ function EditarProduto($conecta, $id){
         if(empty($nome) or empty($descricao) or $preco === false or $preco === null or $categoria === false or $categoria === null){
             echo "Preencha todos os campos corretamente!";
         }else{
-            $sql = "UPDATE produtos SET nome = '$nome', descricao = '$descricao', preco = $preco, categoria = $categoria";
+            $sql = "UPDATE produtos SET nome = '$nome' , preco = $preco ";
+            $sql .= !empty($_POST['descricao']) ? " , descricao = '$descricao' " : "";
+            $sql .= !empty($_POST['categoria']) ? " , categoria = '$categoria' " : "";
+            $sql .= !empty($_POST['data']) ? " , data = '$data' " : "";
             $sql .= " WHERE id_pro = $id";
             $action = mysqli_query($conecta, $sql);
             if($action){

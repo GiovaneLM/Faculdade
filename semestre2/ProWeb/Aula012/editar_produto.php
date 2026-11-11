@@ -24,14 +24,14 @@
     <form action="" method="post">
         <input type="hidden" name="id" value="<?php echo $produto['id_pro']; ?>" >
         <input type="text" name="nome" value="<?php echo $produto['nome']; ?>" >
-        <textarea type="text" name="descricao" value="<?php echo $produto['descricao']; ?>" >
+        <textarea type="text" name="descricao" value="<?php echo $produto['descricao']; ?>"></textarea>
         <input type="number" name="preco" id="" value="<?php echo $produto['preco']; ?>">
-            <select class="form-select" name="categoria" required>
-                <option value="">categoria</option>
-                <?php foreach (buscarCategorias($conecta) as $c) : ?>
-                    <option value="<?= $c['id_cat'] ?>"><?= $c['nome'] ?></option>
-                <?php endforeach; ?>
-            </select>
+        <select class="form-select" name="categoria">
+            <option value="">categoria</option>
+            <?php foreach (buscarCategorias($conecta) as $c) : ?>
+                <option value="<?= $c['id_cat'] ?>"><?= $c['nome'] ?></option>
+            <?php endforeach; ?>
+        </select>
         <input type="date" name="data" value="<?php echo $produto['data']; ?>" >
         <button name="atualizar">Atualizar</button>
     </form>
