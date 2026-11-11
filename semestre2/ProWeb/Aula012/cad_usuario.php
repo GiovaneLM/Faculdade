@@ -57,7 +57,7 @@
                     <td><?= $u['data'] ? date('d/m/Y', strtotime($u['data'])) : '-' ?></td>
                     <td>
                         <a href="deletar_usuario.php?id_user=<?= $u['id_user'] ?>&nome=<?= urlencode($u['nome']) ?>" class="btn btn-sm btn-outline-danger">Excluir</a>
-                        <a href="editar.php?id=<?= $u['id_user'] ?>" class="btn btn-sm btn-outline-primary">Editar</a>
+                        <a href="editar_usuario.php?id_user=<?= $u['id_user'] ?>" class="btn btn-sm btn-outline-primary">Editar</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

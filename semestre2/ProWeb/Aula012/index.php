@@ -37,7 +37,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $produtos = buscarProduto($conecta);foreach ($produtos as $produto) :?>
+                        <?php $produtos = buscarProdutos($conecta);foreach ($produtos as $produto) :?>
                             <tr>
                                 <td><?php echo $produto['nome'] ?></td>
                                 <td><?php echo $produto['descricao'] ?></td>

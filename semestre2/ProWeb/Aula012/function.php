@@ -61,7 +61,7 @@ function criarAdminPadrao($conecta){
 
 
 #################BUSCAR#################
-function buscarProduto($conecta){
+function buscarProdutos($conecta){
 $sql = "SELECT p.id_pro, p.nome, p.descricao, p.preco, p.data,c.nome AS categoria_nome
     FROM produtos p
     INNER JOIN categorias c ON p.categoria = c.id_cat
@@ -84,6 +84,7 @@ function buscarUsuarios($conecta){
     return mysqli_fetch_all($action, MYSQLI_ASSOC);
 }
 
+
 function buscarCategoria($conecta, $id){
     $id = filter_var($id,FILTER_VALIDATE_INT);
     if(!empty($id)){
@@ -94,8 +95,26 @@ function buscarCategoria($conecta, $id){
     }
 }
 
+function buscarProduto($conecta,$id){
+$sql = "SELECT p.id_pro, p.nome, p.descricao, p.preco, p.data,c.nome AS categoria_nome
+    FROM produtos p
+    INNER JOIN categorias c ON p.categoria = c.id_cat
+    WHERE id_pro = $id";
+    $action = mysqli_query($conecta,$sql);
+    $dados = mysqli_fetch_assoc($action);
+    return $dados;
+}
 
-
+function buscarUsuario($conecta, $id){
+    $id = filter_var($id,FILTER_VALIDATE_INT);
+    if(!empty($id)){
+        $sql = "SELECT * FROM usuarios WHERE id_user = $id";
+        $action = mysqli_query($conecta,$sql);
+        // o marcelo que me disse que fetch all era bidimensional e que precisava ser assoc, senão era precisa puxar [0]['atributo'] ou usando foreach pra 1 produto
+        $dados = mysqli_fetch_assoc($action);
+        return $dados;
+    }
+}
 #################CADASTRAR AS COISAS#################
 function cadastrarCategoria($conecta){
     if(isset($_POST['cadastrarC'])){
@@ -208,7 +227,7 @@ function deleteProduto($conecta, $id){
         if ($action) {
             echo "Produto deletado com sucesso!";
             //echo "<script> window.location.ref = 'isiarios.php' </script>";
-            header("Refresh: 2; url=cad_categoria.php");//para ter redicirionamento com delay
+            header("Refresh: 2; url=cad_produto.php");//para ter redicirionamento com delay
             //header("Location: usuarios.php"); //para ter redirecionamento automatico
         }else{
             echo "erro ao deletar Produto!";
@@ -224,7 +243,7 @@ function deleteUsuario($conecta, $id){
         if ($action) {
             echo "Usuario deletado com sucesso!";
             //echo "<script> window.location.ref = 'isiarios.php' </script>";
-            header("Refresh: 2; url=cad_categoria.php");//para ter redicirionamento com delay
+            header("Refresh: 2; url=cad_usuario.php");//para ter redicirionamento com delay
             //header("Location: usuarios.php"); //para ter redirecionamento automatico
         }else{
             echo "erro ao deletar Usuario!";
@@ -260,31 +279,25 @@ function EditarCategoria($conecta,$id){
     }
 }
 
-function EditarProduto($conecta,$id){
-    $id = filter_var($id,FILTER_VALIDATE_INT);
+function EditarProduto($conecta, $id){
+    $id = filter_var($id, FILTER_VALIDATE_INT);
     if(!empty($id) and isset($_POST['atualizar'])){
-        $nome = mysqli_real_escape_string($conecta,$_POST['nome']);
-        $email = filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);
-        $senha = password_hash($_POST['senha'],PASSWORD_DEFAULT);
-        $data = mysqli_real_escape_string($conecta,$_POST['data']);
+        $nome = mysqli_real_escape_string($conecta, $_POST['nome']);
+        $descricao = mysqli_real_escape_string($conecta, $_POST['descricao']);
+        $preco = filter_input(INPUT_POST, "preco", FILTER_VALIDATE_FLOAT);
+        $categoria = filter_input(INPUT_POST, "categoria", FILTER_VALIDATE_INT);
         $erros = [];
-        if(empty($nome) or empty($email)){
+        if(empty($nome) or empty($descricao) or $preco === false or $preco === null or $categoria === false or $categoria === null){
             echo "Preencha todos os campos corretamente!";
         }else{
-            /*if(empty($_POST['senha'])){
-                $sql = "UPDATE usuarios SET nome = '$nome' , email = '$email' , data = '$data' WHERE id = '$id'";
+            $sql = "UPDATE produtos SET nome = '$nome', descricao = '$descricao', preco = $preco, categoria = $categoria";
+            $sql .= " WHERE id_pro = $id";
+            $action = mysqli_query($conecta, $sql);
+            if($action){
+                echo "Produto atualizado com sucesso";
+                header("Refresh: 2; url=cad_produto.php");
             }else{
-                $sql = "UPDATE usuarios SET nome = '$nome' , email = '$email' , data = '$data' , senha = '$senha' WHERE id = '$id'";
-            }*/
-            $sql = "UPDATE usuarios SET nome = '$nome' , email = '$email' , data = '$data' ";
-            $sql .= !empty($_POST['senha']) ? " , senha = '$senha' " : "";
-            $sql .= " WHERE id = $id ";
-            $action = mysqli_query($conecta,$sql);
-            if ($action) {
-                echo "usuario atualizado com sucesso";
-                header("Refresh: 2; url=usuarios.php");
-            }else{
-                echo "erro ao atualizar";
+                echo "Erro ao atualizar produto";
             }
         }
     }
@@ -301,21 +314,18 @@ function EditarUsuario($conecta,$id){
         if(empty($nome) or empty($email)){
             echo "Preencha todos os campos corretamente!";
         }else{
-            /*if(empty($_POST['senha'])){
-                $sql = "UPDATE usuarios SET nome = '$nome' , email = '$email' , data = '$data' WHERE id = '$id'";
-            }else{
-                $sql = "UPDATE usuarios SET nome = '$nome' , email = '$email' , data = '$data' , senha = '$senha' WHERE id = '$id'";
-            }*/
-            $sql = "UPDATE usuarios SET nome = '$nome' , email = '$email' , data = '$data' ";
+            $sql = "UPDATE usuarios SET nome = '$nome' , email = '$email'  ";
+            $sql .= !empty($_POST['data']) ? " , data = '$data' " : "";
             $sql .= !empty($_POST['senha']) ? " , senha = '$senha' " : "";
-            $sql .= " WHERE id = $id ";
+            $sql .= " WHERE id_user = $id ";
             $action = mysqli_query($conecta,$sql);
             if ($action) {
                 echo "usuario atualizado com sucesso";
-                header("Refresh: 2; url=usuarios.php");
+                header("Refresh: 2; url=cad_usuario.php");
             }else{
                 echo "erro ao atualizar";
             }
         }
     }
 }
+

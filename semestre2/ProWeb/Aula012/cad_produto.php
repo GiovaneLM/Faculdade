@@ -63,7 +63,7 @@
                 </tr>
             </thead>
             <tbody>
-            <?php foreach (buscarProduto($conecta) as $p) : ?>
+            <?php foreach (buscarProdutos($conecta) as $p) : ?>
                 <tr>
                     <td><?= htmlspecialchars($p['nome']) ?></td>
                     <td><?= htmlspecialchars($p['descricao']) ?></td>
@@ -72,7 +72,7 @@
                     <td><?= $p['data'] ? date('d/m/Y', strtotime($p['data'])) : '-' ?></td>
                     <td>
                         <a href="deletar_produto.php?id_pro=<?= $p['id_pro'] ?>&nome=<?= urlencode($p['nome']) ?>" class="btn btn-sm btn-outline-danger">Excluir</a>
-                        <a href="editar.php?id=<?= $p['id_pro'] ?>" class="btn btn-sm btn-outline-primary">Editar</a>
+                        <a href="editar_produto.php?id_pro=<?= $p['id_pro'] ?>" class="btn btn-sm btn-outline-primary">Editar</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

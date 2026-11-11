@@ -14,18 +14,27 @@
 </head>
 <body>
     <?php 
-        $id = $_GET['id'];
-        $usuario = buscaId($conecta,$id); 
+        $id = $_GET['id_pro'];
+        $produto = buscarProduto($conecta,$id); 
     ?>
-    <h1>editando o usuario <?php echo $usuario['nome']; ?></h1>
+    <?php
+        print_r($produto);
+    ?>
+    <h1>editando o produto <?php echo $produto['nome']; ?></h1>
     <form action="" method="post">
-        <input type="hidden" name="id" value="<?php echo $usuario['id']; ?>" >
-        <input type="text" name="nome" value="<?php echo $usuario['nome']; ?>" >
-        <input type="email" name="email" value="<?php echo $usuario['email']; ?>" >
-        <input type="password" name="senha" placeholder="*****************">
-        <input type="date" name="data" value="<?php echo $usuario['data']; ?>" >
+        <input type="hidden" name="id" value="<?php echo $produto['id_pro']; ?>" >
+        <input type="text" name="nome" value="<?php echo $produto['nome']; ?>" >
+        <textarea type="text" name="descricao" value="<?php echo $produto['descricao']; ?>" >
+        <input type="number" name="preco" id="" value="<?php echo $produto['preco']; ?>">
+            <select class="form-select" name="categoria" required>
+                <option value="">categoria</option>
+                <?php foreach (buscarCategorias($conecta) as $c) : ?>
+                    <option value="<?= $c['id_cat'] ?>"><?= $c['nome'] ?></option>
+                <?php endforeach; ?>
+            </select>
+        <input type="date" name="data" value="<?php echo $produto['data']; ?>" >
         <button name="atualizar">Atualizar</button>
     </form>
-    <?php updateUser($conecta, $id); ?>
+    <?php EditarProduto($conecta, $id); ?>
 </body>
 </html>
