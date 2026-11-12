@@ -286,8 +286,9 @@ function EditarProduto($conecta, $id){
         $descricao = mysqli_real_escape_string($conecta, $_POST['descricao']);
         $preco = filter_input(INPUT_POST, "preco", FILTER_VALIDATE_FLOAT);
         $categoria = filter_input(INPUT_POST, "categoria", FILTER_VALIDATE_INT);
+        $data = mysqli_real_escape_string($conecta,$_POST['data']);
         $erros = [];
-        if(empty($nome) or empty($descricao) or $preco === false or $preco === null or $categoria === false or $categoria === null){
+        if(empty($nome)){
             echo "Preencha todos os campos corretamente!";
         }else{
             $sql = "UPDATE produtos SET nome = '$nome' , preco = $preco ";
